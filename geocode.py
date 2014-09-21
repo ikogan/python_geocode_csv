@@ -36,7 +36,8 @@ outcsv = csv.writer(output_file)
 
 incsv.fieldnames = [x.strip().lower() for x in incsv.fieldnames]
 
-if not key_column in incsv.fieldnames:
+key = key_column.strip().lower()
+if not key in incsv.fieldnames:
 	print >> sys.stderr, "[ERR] Cannot find key column %s in input data." % (key_column)
 	sys.exit(2)
 
@@ -58,7 +59,7 @@ for row in incsv:
         print "[ERR] FAILED TO GET LOCATION FOR ", address
     else:
         print address, longitude, latitude
-        outcsv.writerow([row[key_column], address, longitude, latitude])
+        outcsv.writerow([row[key], address, longitude, latitude])
 
     if api_count >= API_CALL_LIMIT:
     	print "Limit of %d calls hit, stopping." % (API_CALL_LIMIT)
