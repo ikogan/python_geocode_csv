@@ -34,7 +34,7 @@ import csv
 incsv = csv.DictReader(input_file, dialect="excel")
 outcsv = csv.writer(output_file)
 
-incsv.fieldnames = [x.strip() for x in incsv.fieldnames]
+incsv.fieldnames = [x.strip().lower() for x in incsv.fieldnames]
 
 if not key_column in incsv.fieldnames:
 	print >> sys.stderr, "[ERR] Cannot find key column %s in input data." % (key_column)
@@ -49,7 +49,7 @@ if batch > 1:
 
 api_count = 0
 for row in incsv:
-    address = "%s, %s, %s, %s" % (row['Address'], row['City'], row['State'], row['Zip'])
+    address = "%s, %s, %s, %s" % (row['address'], row['city'], row['state'], row['zip'])
 
     try:
         address, (latitude, longitude) = geolocator.geocode(address)

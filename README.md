@@ -11,6 +11,21 @@ To run, add an argument of the filename WITHOUT the .csv extension
 The key column is currently required and will be output as part of the
 CSV. This allows easily associating the result with the original data.
 
+# Format
+The input format must contain the columns:
+
+- Address
+- City
+- State
+- Zip
+
+A header for the columns is required and must match those above though
+it is not case sensitive. Additionally, a "key column" must be specified.
+The column will be added as the first column in the result. Note that
+while the "Address" column could be the key column, if it is, two columns
+with the same header (though possibly different data) will be added to the
+result.
+
 # Output
 Creates a new output file:
 > filename.coded.csv
