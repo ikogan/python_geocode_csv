@@ -31,7 +31,6 @@ Creates a new output file:
 > filename.coded.csv
 
     $ python geocode.py sample_data "Household ID"
-    "Household ID",Address,
     Household ID,Address,Longitude,Latitude
     0000000001,"401 I Street Southwest, Washington, DC 20024, USA",-77.01815049999999,38.8796067
     0000000002,"3219 O Street Northwest, Washington, DC 20007, USA",-77.0648106,38.90819920000001
